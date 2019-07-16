@@ -1,6 +1,6 @@
-MAINTAINER bkperio@gmail.com
-
 FROM ubuntu:18.04
+
+MAINTAINER bkperio@gmail.com
 
 ARG DEBIAN_FRONTEND=noninteractive
 
