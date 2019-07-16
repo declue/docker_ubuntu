@@ -1,7 +1,4 @@
-한국에서 사용하기 적합하게 수정된 Docker Container 입니다.
-
-# Base Ubuntu
-ubuntu:18.04
+한국에서 사용하기 적합하게 수정된 ubuntu:18.04 기반의 Docker Container 입니다. 
 
 # 주요 변경 사항
 - Locale을 한국으로 변경
