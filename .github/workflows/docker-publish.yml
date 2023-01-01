@@ -2,15 +2,18 @@ name: Docker
 
 on:
   push:
-    branches: [ "focal" ]
+    branches: [ "master" ]
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}:${{ github.branch }}
+  IMAGE_NAME: ${{ github.repository }}
 
 jobs:
   build:
-
+    strategy:
+      matrix:
+        ubuntu_version: ['20.04']
+        
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -50,10 +53,11 @@ jobs:
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ matrix.ubuntu_version}}
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64
 
       - name: Sign the published Docker image
         if: ${{ github.event_name != 'pull_request' }}
