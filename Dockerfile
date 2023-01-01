@@ -5,6 +5,7 @@ MAINTAINER bkperio@gmail.com
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
+RUN apt-get -y upgrade
 RUN apt-get install -y --no-install-recommends apt-utils
 
 # for Hangul
@@ -26,4 +27,6 @@ ENV TZ Asia/Seoul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get install -y vim 
 RUN apt-get install -y net-tools
-
+RUN apt-get install -y iputils-ping
+RUN apt-get install -y curl
+RUN apt-get install -y wget

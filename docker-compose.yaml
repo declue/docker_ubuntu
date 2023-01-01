@@ -1,0 +1,8 @@
+services:
+  ubuntu:
+    image: declue/ubuntu:focal
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    
