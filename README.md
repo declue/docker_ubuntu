@@ -3,10 +3,10 @@
 한국에서 사용하기 적합하게 수정된 ubuntu 기반의 Docker Container 입니다. 
 다음의 버전들을 지원합니다.
 
-- 16.04
-- 18.04
-- 20.04
-- 22.04
+- 16.04 (ghcr.io/declue/docker_ubuntu:16.04)
+- 18.04 (ghcr.io/declue/docker_ubuntu:18.04)
+- 20.04 (ghcr.io/declue/docker_ubuntu:20.04)
+- 22.04 (ghcr.io/declue/docker_ubuntu:22.04)
 
 배포된 이미지에 대한 pakcage 정보는 다음과 같습니다.
 https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu
@@ -25,5 +25,7 @@ https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu
 - ip-utils
 - wget
 - curl
+- apt-utils
+- language-pack-ko
 
 자세한 사항은 Dockerfile을 참조하세요.
