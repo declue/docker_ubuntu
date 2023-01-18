@@ -9,7 +9,7 @@
 - 22.04 (ghcr.io/declue/docker_ubuntu:22.04)
 
 배포된 이미지에 대한 pakcage 정보는 다음과 같습니다.
-https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu
+- https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu
 
 
 
