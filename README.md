@@ -27,5 +27,7 @@
 - curl
 - apt-utils
 - language-pack-ko
+- tree
+- jq
 
 자세한 사항은 Dockerfile을 참조하세요.
