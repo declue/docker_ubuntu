@@ -47,6 +47,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: ${{ matrix.ubuntu_version}}
+          sha: type=sha,format=long
           
       - name: Build and push Docker image
         id: build-and-push
@@ -66,12 +67,12 @@ jobs:
         run: |
           cosign sign --key env://COSIGN_PRIVATE_KEY ${TAGS}
         env:
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
+          TAGS: ${{ steps.docker_meta.outputs.sha }}
           COSIGN_PRIVATE_KEY: ${{secrets.COSIGN_PRIVATE_KEY}}
           COSIGN_PASSWORD: ${{secrets.COSIGN_PASSWORD}}
 
       - name: Sign the images with GitHub OIDC Token **not production ready**
         run: cosign sign ${TAGS}
         env:
-          TAGS: ${{ steps.docker_meta.outputs.tags }}
+          TAGS: ${{ steps.docker_meta.outputs.sha }}
           COSIGN_EXPERIMENTAL: true
