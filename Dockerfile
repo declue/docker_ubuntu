@@ -2,7 +2,7 @@ ARG BASE_IMAGE
 
 FROM $BASE_IMAGE
 
-ENV UBUNTU_UPDATED_TIME="2024-02-05"
+ENV UBUNTU_UPDATED_TIME="2024-07-20"
 ENV DEBIAN_FORNTEND="noninteractive"
 
 RUN apt-get update && \ 
@@ -23,4 +23,4 @@ ENV LC_ALL=ko_KR.UTF-8
 # Timezone
 ENV TZ Asia/Seoul 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get install -y vim net-tools iputils-ping curl wget tree jq
+RUN apt-get install -y vim net-tools iputils-ping curl wget tree jq htop
