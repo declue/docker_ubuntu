@@ -7,6 +7,8 @@ on:
     branches:
       - main
   workflow_dispatch:
+  schedule:
+    - cron: "0 15 * * *" 
 
 env:
   REGISTRY: ghcr.io
@@ -16,13 +18,12 @@ jobs:
   build:
     strategy:
       matrix:
-        ubuntu_version: ['16.04', '18.04', '20.04', '22.04']
+        ubuntu_version: ['24.04', '22.04', '20.04', '18.04', '16.04']
         
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
-      id-token: write
 
     steps:
       - name: Checkout repository
@@ -45,6 +46,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: ${{ matrix.ubuntu_version}}
+
+      - name: Get build time
+        id: build_time
+        run: echo "BUILD_TIME=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> $GITHUB_ENV
           
       - name: Build and push Docker image
         id: build-and-push
@@ -58,4 +63,5 @@ jobs:
           cache-to: type=gha,mode=max
           build-args: |
             BASE_IMAGE=ubuntu:${{ matrix.ubuntu_version }}
+            BUILD_DATE=${{ env.BUILD_TIME }}
           platforms: linux/amd64,linux/arm64,linux/arm/v7
