@@ -1,5 +1,5 @@
-ARG BASE_IMAGE
-ARG BUILD_DATE
+ARG BASE_IMAGE=ubuntu:22.04 
+ARG BUILD_DATE=2025-03-05
 
 FROM $BASE_IMAGE
 
@@ -14,7 +14,7 @@ ENV TERM=xterm-256color
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
         apt-utils locales vim net-tools iputils-ping curl wget tree jq htop unzip zip traceroute \
-        software-properties-common lsb-release ca-certificates dnsutils  && \
+        software-properties-common lsb-release ca-certificates dnsutils fontconfig  && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Manually configure Korean locale (Fix for missing language-pack-ko)
@@ -34,7 +34,7 @@ ENV LANGUAGE=ko_KR.UTF-8
 ENV LC_ALL=ko_KR.UTF-8
 
 # Timezone
-ENV TZ Asia/Seoul 
+ENV TZ=Asia/Seoul 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 
