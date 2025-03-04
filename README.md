@@ -1,33 +1,56 @@
 [![Docker](https://github.com/declue/docker_ubuntu/actions/workflows/docker-publish.yml/badge.svg?branch=main)](https://github.com/declue/docker_ubuntu/actions/workflows/docker-publish.yml)
 
-한국에서 사용하기 적합하게 수정된 ubuntu 기반의 Docker Container 입니다. 
-다음의 버전들을 지원합니다.
+This is a **Ubuntu-based Docker container** optimized for use in **South Korea**.  
+The following versions are supported:
 
-- 16.04 (ghcr.io/declue/docker_ubuntu:16.04)
-- 18.04 (ghcr.io/declue/docker_ubuntu:18.04)
-- 20.04 (ghcr.io/declue/docker_ubuntu:20.04)
-- 22.04 (ghcr.io/declue/docker_ubuntu:22.04)
+- **16.04** → `ghcr.io/declue/docker_ubuntu:16.04`
+- **18.04** → `ghcr.io/declue/docker_ubuntu:18.04`
+- **20.04** → `ghcr.io/declue/docker_ubuntu:20.04`
+- **22.04** → `ghcr.io/declue/docker_ubuntu:22.04`
+- **24.04** → `ghcr.io/declue/docker_ubuntu:24.04`
+- 
+For detailed package information on each deployed image, please refer to:  
+🔗 [Container Packages](https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu)
 
-배포된 이미지에 대한 pakcage 정보는 다음과 같습니다.
-- https://github.com/declue/docker_ubuntu/pkgs/container/docker_ubuntu
+---
 
+## 🚀 *Key Features**
+This container is customized to **better support Korean environments**, ensuring seamless usability for developers in South Korea.
 
+### **🛠 System Configuration**
+✅ **Locale Set to Korean (`ko_KR.UTF-8`)** – Ensures proper encoding and language support.  
+✅ **Korean Font Support (Nanum Fonts)** – Pre-installed `fonts-nanum` and `fonts-nanum-coding` for better text rendering.  
+✅ **System Timezone Set to Korea (`Asia/Seoul`)** – Synchronizes system time with Korean Standard Time (KST).  
 
-# 주요 변경 사항
-- Locale을 한국으로 변경
-- Encoding을 ko_KR.UTF-8로 변경
-- Nanum 폰트 적용
-- Timezone을 한국으로 변경
+### **📦 Pre-Installed Essential Packages**
+This container includes a range of **pre-installed tools** commonly used for development, debugging, and system monitoring:
 
-# 기본 설치 프로그램
-- vim
-- net-tools
-- ip-utils
-- wget
-- curl
-- apt-utils
-- language-pack-ko
-- tree
-- jq
+| Category          | Installed Packages |
+|------------------|-----------------|
+| **System Utilities** | `vim`, `net-tools`, `iputils-ping`, `wget`, `curl`, `tree`, `jq`, `unzip`, `zip`, `htop` |
+| **Language Support** | `language-pack-ko`, `fonts-nanum`, `fonts-nanum-coding` |
+| **Network & Debugging** | `dnsutils`, `traceroute`|
+| **Security & Certificate Management** | `software-properties-common`, `lsb-release`, `ca-certificates` |
 
-자세한 사항은 Dockerfile을 참조하세요.
+---
+
+## 📌 **Additional Features**
+- Multi-platform support: **`linux/amd64`, `linux/arm64`, `linux/arm/v7`**
+- Regular updates with the latest security patches.
+- Optimized build process for reduced image size and better performance.
+- Fully compatible with **Docker Buildx** for efficient multi-arch builds.
+
+For more details, please check the **Dockerfile** in the repository.  
+
+📄 **Reference:** [GitHub Repository](https://github.com/declue/docker_ubuntu)  
+
+---
+
+### **📢 Recommended Usage**
+To pull the latest **Ubuntu 22.04 Korean-optimized image**, run:
+```sh
+docker pull ghcr.io/declue/docker_ubuntu:22.04
+```
+For other versions, simply replace `22.04` with your preferred version.
+
+---
