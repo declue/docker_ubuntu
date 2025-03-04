@@ -12,7 +12,7 @@ ENV TERM=xterm-256color
 RUN apt-get update && \
     apt-get install -y --no-install-recommends apt-utils && \
     apt-get upgrade -y && \
-    apt-get install -y vim net-tools iputils-ping curl wget tree jq htop unzip zip netcat traceroute && \
+    apt-get install -y vim net-tools iputils-ping curl wget tree jq htop unzip zip traceroute && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
  
 # Install Korean language support
